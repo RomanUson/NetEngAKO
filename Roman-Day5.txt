@@ -1,0 +1,139 @@
+192.168.108.157
+
+sudo su = Run as admin
+Erase startup-config
+reload
+
+@Github
+Create repo Ansible
+git clone https://github.com/rivan16/sshansible
+
+Note:
+1. download Ansible tower
+2. CSR1000v - automate 
+
+Task1: How to be a SWITCHING EXPERT in 4hours
+1. Magaling sa tuhog
+	 Mode button - "Sys" = green
+2. Kislap test
+	spanning tree protocol: 30s :blk-lis-1rn-fwd
+	30 sec = Green
+	RapidSTP
+3. How to get fired instantly:
+	1.1 Do not buy Cisco, hp, fortinet, dell, huawei = Buy lazada SW
+	1.2 Loop to itself
+
+SWITCH functions:
+1. Mac address learning
+2. Mac add filtering
+3. Mac add forwarding
+4. PHP: loop avoidance
+5. $$
+
+config t
+spanning-tree vlan 1
+end
+
+conf t 
+line vty 14
+no login local
+
+	 
+Good Root/Bridge Identifier: 24,576 / 28,768
+poor root Identifier: 32768
+
+Wireshark
+filter STP = every 2 seconds
+expand Spanning Tree protocal
+
+4.
+sh interfaces status err-disabled
+
+sh ip dhcp binding = check IP and mac address
+
+---
+
+SIP CONFIGURATION
+conf t
+ voice service voip
+  allow-connections h323 to sip
+  allow-connections sip to h323
+  allow-connections sip to sip
+  supplementary-service h450.12
+ sip
+   bind control source-interface _____0/0
+   bind media source-interface _____0/0
+   registrar server expires max 600 min 60
+!
+ voice register global
+  mode cme
+  source-address 192.168._.1 port 5060
+  max-dn 12
+  max-pool 12
+  authenticate register
+  create profile sync
+ voice register dn 1
+   number ____
+   allow watch
+   name _______
+ voice register dn 2
+          
+   number ___
+   allow watch
+   name _______
+  voice register pool 1
+    id mac ____.____.____
+    number 1 dn 1
+    dtmf-relay sip-notify
+    username ____ password ____
+    codec g711ulaw
+!
+  voice register pool 1
+    id mac ____.____.____
+    number 1 dn 2
+    dtmf-relay sip-notify
+    username ____ password ____
+    codec g711ulaw
+!
+
+config t
+!
+dial-peer voice _ voip
+destination-pattern k..
+session protocol sipv2       
+session target sip-server
+codec g711ulaw
+exit
+sip-ua
+sip-server ipv4:192.168.k.1
+
+---
+
+
+conf t
+dot11 ssid sipwifi22
+authentication open
+authentication key-management wpa
+wpa-psk ascii aaabbb123
+guest-mode
+int Dot11Radio 0
+no shut
+encryption mode ciphers tkip
+ssid sipwifi22
+do sh ip int brief
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
